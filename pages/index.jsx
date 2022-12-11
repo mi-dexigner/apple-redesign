@@ -5,6 +5,7 @@ import { Tab } from '@headlessui/react'
 import { fetchCategories } from "../utils/fetchCategories";
 import { fetchProducts } from "../utils/fetchProducts";
 import Product from '../components/Product';
+import Basket from '../components/Basket';
 
 export default function Home({categories,products}) {
 // console.log(products);
@@ -25,10 +26,11 @@ export default function Home({categories,products}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     <Header />
-    <main className="relative h-[200vh] bg-[#E7ECEE]">
+    <Basket/>
+    <main className="relative h-[200vh] bg-[#E7ECEE] relative" >
       <Landing />
     </main>
-    <section className="relative z-40 -mt-[100vh] min-h-screen bg-[#1B1B1B]">
+    <section className="relative z-[9] -mt-[100vh] min-h-screen bg-[#1B1B1B]">
     <div className="space-y-10 py-16">
           <h1 className="text-center text-4xl font-medium tracking-wide text-white md:text-5xl">
             New Promos
@@ -83,6 +85,7 @@ export const getServerSideProps = async () => {
   }
 }
 /* 
+3:57:44
 https://tailwindcss.com/blog/automatic-class-sorting-with-prettier
 https://headlessui.com/react/tabs
 https://heroicons.com/

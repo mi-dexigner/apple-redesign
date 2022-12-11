@@ -17,10 +17,12 @@ const Landing = () => {
             </div>
         </div>
         <div className='relative hidden h-[450px] w-[450px] transition-all duration-500 md:inline lg:h-[650px] lg:w-[650px]'>
-        <Image src="/iphone.png" fill alt="hero" />
+        <Image src="/iphone.png" responsive='true' width={450} height={450} alt="hero" />
         </div>
     </section>
   )
 }
 
 export default Landing
+
+// npm install @reduxjs/toolkit react-redux

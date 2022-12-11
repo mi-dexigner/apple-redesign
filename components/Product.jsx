@@ -2,10 +2,18 @@ import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { urlFor } from "../utils/sanity";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../redux/basketSlice";
+import toast from "react-hot-toast";
 
 const Product = ({ product }) => {
+  const dispatch = useDispatch();
+
     const addItemToBasket = () => {
-       
+      dispatch(addToBasket(product));
+      toast.success(`${product.title} added to basket`, {
+        position: "bottom-center",
+      });
       };
       // console.log(product);
   return (

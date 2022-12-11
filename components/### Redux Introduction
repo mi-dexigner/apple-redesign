@@ -1,0 +1,164 @@
+### Redux Introduction
+- Redux is a predictable state container for JavaScript apps
+  - It is for JavaScript apps
+  - It is a state container
+  - It is a predictable
+
+### Redux is for JavaScript applications
+- Redux is not tied to React
+- Can be used with React, Angular, Vue or even vanilla JavaScript
+- Redux is a library for JavaScript application
+  
+### Redux is a state container
+- Redux stores the state of your application
+- Consider a React app-state of a component
+- State of an app is the state represented by all the individual component of that app
+- Redux will store and manage the application state
+
+#### LoginFormComponent
+```
+state={
+    username:'',
+    password:'',
+    submitting:false
+}
+```
+#### UserListComponent
+```
+state={
+    user:[]
+}
+```
+#### Application
+```
+state={
+    isUserLoggedIn:true,
+    username:"admin",
+    profileUrl:'',
+    onlineUsers:[],
+    isModalOpened:false
+
+}
+```
+### Redux is predictable
+- Predictable in what way?
+- Redux is state container
+- The state of the application can changed
+  - Ex: todo list app - item (pending) -> item (completed)
+- In redux, all state transitions are explicit and it is possible to keep track of them
+- The changes to your application's state become predictable
+
+> Redux is a predictable state container for JavaScript apps
+- Manage the state of your application in a predictable way, redux can help you.
+
+### React + Redux ?
+- why would we want to use redux in a react applcation?
+- components in React have their own state
+- why do we need another tool to help manage the state?
+  
+### Do we really have a problem?
+- React context - Prevents props drilling
+- UseContext + useReducer
+- Redux 1.0 - August 2015
+
+### Summary 
+- React is a library used to build user interfaces
+- Redux is a library for managing state in predictable way in JavaScript applications
+- React-redux is a library that provides binding to use React and Redux together is an application
+
+### Get Started
+- npm init -y
+- npm install redux
+
+###  Three Core Concepts
+
+| Cake Shop Scenario   |      Redux      |  Purpose |
+|----------|:-------------:|------:|
+| Shop |  Store | Hold the state of your application |
+| Intention to BUY_CAKE |    Action   |   Describe what happened |
+| Shopkeeper | reducer | Ties the store and actions together |
+
+- A **store** that holds the state of your application
+- An **action** that describes the changes in the state of the application
+- A reducer which actually carries out the state transition depending on the action.
+
+###  Three Principles
+
+#### <ins>First Principle</ins>
+> The state of your whole application is stored in an object tree within a single store
+ 
+- Maintain our application state in a single object which would be managed by the Redux store
+
+##### <ins> Cake Shop </ins>
+- Let's assume we are tracking the number of cakes on the shelf
+```
+{
+    numberOfCakes:10
+}
+```
+#### <ins>Second Principle</ins>
+> The only way to change the state is to emit an action, an object describing what happen
+- To update the state of your app, you need to let Redux know that with an action not allowed to directly update the state object
+
+##### <ins> Cake Shop </ins>
+- Let the shopkeeper know about our action - BUY_CAKE
+```
+{
+    type:BUY_CAKE
+}
+```
+#### <ins>Thord Principle</ins>
+> To specfic how the state tree is transformed by actions, you write pure reducers
+- Reducer - (previousState,action) => newState
+
+##### <ins> Cake Shop </ins>
+- Reducer is the shopkeeper
+```
+const reducer = (state,action){
+    switch (action.type){
+        case BUY_CAKE: return{
+            numberOfCakes : state.numberOfCakes -1
+        }
+    }
+}
+```
+
+### Actions
+- The only way your application can interact with the store
+- Carry some information from your app to the redux store
+- Plain JavaScript Objects
+- Have a `type` property that indicates the types of action being performed
+- The `type` property is typically defined as string constants
+
+### Reducers
+- Specfic how the app's state changes in response to actions sent to the store
+- Function that accepts state and action as arguments, and return the next state of the application
+- `` (previousState,action) => newState ``
+
+### Store
+- One store for the entire application
+- Responsibilities -
+  - Holds application state
+  - Allows access to state via ***getState()***
+  - Allows state to be update via ***dispatch(action)***
+  - Registers listeners via ***subscribe(listener)***
+  - Handles unregister of listeners via the function returned by  ***subscribe(listener)***
+
+
+
+### Resources
+- https://www.youtube.com/watch?v=apcda524MJA&list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK&index=9&ab_channel=Codevolution
+- [Sidebar Navigation Prototype](https://codepen.io/astronaut258/pen/xxONdoK)
+- [Houdini gradient border animation](https://codepen.io/michellebarker/pen/gOMBPQj)
+- [Profile Card Hover Effect](https://codepen.io/petegarvin1/pen/YzWBbRx)
+- [Houdini Linear gradient border animation](https://codepen.io/michellebarker/pen/eYzPbqp)
+- [placeholder forms](https://codepen.io/ainalem/pen/GRqPwoz)
+- [clock JavaScript](https://codepen.io/astronaut258/pen/xxOBmRz)
+- [TOASTS](https://codepen.io/mrtrimble/details/mdEgzzR)
+- [Hamburger Menu](https://codepen.io/ainalem/pen/wvKOEMV)
+- [Time slot selector](https://codepen.io/andershoff/pen/rzGJPP)
+- [Attendance](https://codepen.io/Cheeky/pen/LjzwNO)
+- [plain js simple calendar](https://codepen.io/a8t/pen/EwQrrB)
+- [weekTimeSlot](https://codepen.io/kos0616/pen/oOgrBx)
+- 
+- [Netflix JavaScript Talks - RxJS + Redux + React = Amazing!](https://www.youtube.com/watch?v=AslncyG8whg&ab_channel=NetflixUIEngineering)
